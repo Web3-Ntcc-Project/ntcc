@@ -39,9 +39,22 @@
     font-size: 1.2rem;
     margin-top: 10px;
 }
+.header {
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+    
+}
+
+.header.header-scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 0;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
 .navbar-nav .btn:hover{
     background-color:aliceblue;
 }
+
 
 /* .body{
     background-color: aquamarine;
