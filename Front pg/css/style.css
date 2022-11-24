@@ -1,0 +1,341 @@
+
+ body {
+    font-family:"Montserrat";
+    font-size: 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+}
+ a{
+    text-decoration: none;
+    color: rgba(34,54,69,7);
+    font-weight: 500;
+}
+
+.navbar {
+
+    padding: 10px 10px;
+}
+.navbar-toggler {
+    border: none;
+    padding: 10px 6px;
+    outline:none;
+}
+/* .navbar-toggler-span{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: #fff;
+} */
+.navbar-nav .btn{
+    background-color: aqua;
+    color: rgb(0, 0, 0);
+    border-radius: 0;
+    padding: 1rem 1.5rem;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    border-radius: 50px;
+}
+.header {
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+    
+}
+
+.header.header-scrolled {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 15px 0;
+    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+}
+.navbar-nav .btn:hover{
+    background-color:aliceblue;
+}
+.navbar-brand{
+    font-weight: bold;
+    font-size: 30px;
+    word-spacing: 2px;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+.banner-image {
+    background-image: url('../img/img.jpg');
+    background-size: cover;
+    filter: blur(5px);
+    transform: scale(1.1);
+/*   -webkit-filter: blur(8px);*/
+}
+.heading{
+    position: absolute;
+    left: 700px;
+    top: 18%;
+    color: white;
+    font-family: 'Jura', sans-serif;
+    font: bold;
+    font-size: 25px;
+
+}
+.numeric {
+    position: absolute;
+    left: 870px;
+    top: 28%;
+    color:lightgreen;
+    font: bold;
+
+}
+.minted {
+    position: absolute;
+    left: 980px;
+    top: 28%;
+    color: white;
+    font-family: 'Jura', sans-serif;    
+    font: bold;
+
+}
+.img2 {
+    position: absolute;
+    top: 270px;
+    left: 170px;
+
+}
+.bulb {
+    position: absolute;
+    top: 300px;
+    left: 1120px;
+    transform: scale(1.1);
+}
+.bulb:before {
+    content: "";
+    position: absolute;
+    top: 300px;
+    left: 1120px;
+    background: inherit;
+    transform: translateX(10px);
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    background-blend-mode: difference;
+}
+.bulb:before{
+    animation-name: glitchAnim1;
+}
+.bulb:after {
+    animation-name: glitchAnim2;
+}
+@keyframes glitchAnim1{
+    0%,25.1%,100%{
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+    4%{
+        clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%);
+    }
+    5%{
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+    }
+    9%{
+        clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%);
+    }
+    10%{
+        clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    14%{
+        clip-path: polygon(0 40%, 100% 40%, 100% 50%, 0 50%);
+    } 
+    15%{
+        clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    } 
+    19%{
+        clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
+    }
+    20%{
+        clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }
+    24%{
+        clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%);
+    }
+    25%{
+        clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+    }
+}
+
+@keyframes glitchAnim1{
+    0%,25.1%,100%{
+        clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+    }
+    4%{
+        clip-path: polygon(0 80%, 100% 80%, 100% 90%, 0 90%);
+        background-color: rgba(0, 0, 255, 0.2);
+    }
+    5%{
+        clip-path: polygon(0 80%, 100% 80%, 100% 80%, 0 80%);
+        background-color: transparent;
+    }
+    9%{
+        clip-path: polygon(0 60%, 100% 60%, 100% 70%, 0 70%);
+    }
+    10%{
+        clip-path: polygon(0 60%, 100% 60%, 100% 60%, 0 60%);
+    }    
+    14%{
+        clip-path: polygon(0 40%, 100% 40%, 100% 50%, 0 50%);
+    } 
+    15%{
+        clip-path: polygon(0 40%, 100% 40%, 100% 40%, 0 40%);
+    } 
+    19%{
+        clip-path: polygon(0 20%, 100% 20%, 100% 30%, 0 30%);
+    }
+    20%{
+        clip-path: polygon(0 20%, 100% 20%, 100% 20%, 0 20%);
+    }
+    4%{
+        clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%);
+    }
+    5%{
+        clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+    }
+}
+
+
+
+
+
+.elements{
+    position: absolute;
+}
+
+.POLY {
+    animation-name: infiniteupdown;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition .3s;
+    position: absolute;
+    top: -550px;
+    left: 1600px;
+}
+
+.BNB {
+    animation-name: infiniteupdown;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition .2s;
+    position: absolute;
+    top: -400px;
+    left: 1000px;
+/*    transform: scaleX(-1);*/
+}
+
+.SOL {
+    animation-name: infiniteupdown;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition .2s;
+    position: absolute;
+    top: -900px;
+    left: 1420px;
+
+
+}
+.TETH{
+    animation-name: infiniteupdown;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition  .4s;
+    position: absolute;
+    top: -680px;
+    left: 960px;
+    transform: rotate3d(0, 2, 0, 3.4rad);
+
+
+}
+.ETH{
+    animation-name: infiniteupdown;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    transition .5s;
+    position: absolute;
+    top: -290px;
+    left: 1430px;
+}
+
+@keyframes infiniteupdown {
+    0%{
+        transform: translateY(0px);
+    }
+
+    50%{
+        transform: translateY(-40px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.price-bg {
+    background-image: url('../img/pricebg.jpg');
+    background-size: cover;
+    filter: blur(5px);
+    transform: scale(1.1);
+    position: absolute;
+    top: 1100px;
+}
+
+.box1{
+    position: absolute;
+    top: 1450px;
+    left: 250px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+.box2{
+    position: absolute;
+    top: 1450px;
+    left: 750px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+.box3{
+    position: absolute;
+    top: 1450px;
+    left: 1250px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+.pricehead1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 200px;
+    left: -160px;
+}
+.pricehead2 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 200px;
+    left: -100px;
+}
