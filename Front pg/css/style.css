@@ -9,6 +9,7 @@
     overflow-x: hidden;
     top: 0;
     left: 0;
+    background-color: black;
 }
  a{
     text-decoration: none;
@@ -20,6 +21,14 @@
 
     padding: 10px 10px;
 }
+
+.navbar-toggler-icon {
+    background-color: white;
+    height: 5px;
+    display: block;
+    margin-bottom: 5px;
+}
+
 .navbar-toggler {
     border: none;
     padding: 10px 6px;
@@ -33,28 +42,46 @@
     background: #fff;
 } */
 .navbar-nav .btn{
-    background-color: aqua;
-    color: rgb(0, 0, 0);
-    border-radius: 0;
+    color: black;
+    border: solid 5px white;
+    background-color: #6fff31;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 20px;
     padding: 1rem 1.5rem;
-    font-size: 1.2rem;
+    font-size: 18px;
+    font-weight: bold;
     margin-top: 10px;
-    border-radius: 50px;
 }
 .header {
     transition: all 0.5s;
     z-index: 997;
     padding: 20px 0;
+    position: absolute;
+    background-size:cover;
     
 }
 
-.header.header-scrolled {
-    background: rgba(0, 0, 0, 0.85);
-    padding: 15px 0;
-    box-shadow: 0px 2px 20px rgba(1, 41, 112, 0.1);
+.nav-item {
+    padding: 20px;
 }
+
+.nav-link {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+.nav-link:hover, .nav-link:active {
+    font-weight: bold;
+    color: #6fff31;
+}
+
+
+
 .navbar-nav .btn:hover{
     background-color:aliceblue;
+    border-color: #6fff31;
 }
 .navbar-brand{
     font-weight: bold;
@@ -64,8 +91,27 @@
 
 /*---------------------------------------------------------------------------------------------*/
 
+.hero {
+    margin-top: 100px;
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  margin-bottom:100px;
+    top: 0;
+    left: 0;
+  }
+
+  .logo-img {
+    width:120px;
+    margin-left:10px;
+    padding-bottom:10px;
+  }
+
 .banner-image {
-    background-color: black;
+   
     background-size: cover;
 /*    filter: blur(5px);
     transform: scale(1.1);
@@ -190,6 +236,16 @@
     border-radius: 20px;
 
 }
+
+.logo-banner {
+    margin-top:-50px;
+   
+}
+
+.main-anim {
+    width:100%;
+    margin-top: -100px;
+}
 .pricehead1 {
     text-align: center;
     color: white;
@@ -203,4 +259,252 @@
     position: relative;
     top: 200px;
     left: -100px;
+}
+
+
+.price {
+    float: right;
+    font-size: 65px;
+}
+
+.eth {
+    background-color: #32de84;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    height: 180px;
+}
+
+#chart {
+    margin-top: 100px;
+}
+
+.btc {
+    background-color: #4FFFB0;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    height: 180px;
+}
+
+.matic {
+    background-color: #50C878;
+    border-radius: 10px;
+    height: 180px;
+}
+
+.matic-img {
+    width: 38px;
+    margin-bottom: 10px;
+}
+
+.counts {
+    padding: 70px 0 60px;
+    background-color: black;
+}
+.counts .btn {
+    background-color: transparent !important;
+}
+.counts .btn-get-started {
+    line-height: 0;
+    height: 50px;
+    font-size: 25px;
+    width: 300px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    transition: 0.5s;
+    color: #fff;
+    background: #975bb0;
+}
+.counts .btn-get-started i {
+    font-size: 25px;
+}
+
+.counts .box {
+    padding: 10px;
+    box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
+    background-color: transparent;
+    border: solid 5px #6fff31;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 30px;
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.counts .box img {
+    padding: 30px 50px;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.counts .box h3 {
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.counts .box:hover {
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.counts .box:hover img {
+    transform: scale(1);
+}
+
+.counts .count-box {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.counts .count-box i {
+    font-size: 42px;
+    line-height: 0;
+    margin-right: 20px;
+    color: #4154f1;
+}
+
+.counts .count-box span {
+    font-size: 36px;
+    display: block;
+    font-weight: 600;
+    color: #0b198f;
+}
+
+.counts .count-box p {
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+}
+
+.values .counts .wallet {
+    justify-content: justify;
+}
+
+.values .logo-wallet {
+    max-height: 140px;
+    margin-left: -80px;
+    margin-top: -10px;
+}
+
+.values .profile-wallet {
+    max-height: 140px;
+    margin-left: -60px;
+    margin-top: -10px;
+}
+
+.values #selected-account {
+    font-size: 9px;
+}
+
+.values #network-name {
+    margin-bottom: -30px;
+    font-size: 1.2rem;
+}
+
+.values .block {
+    height: 300px;
+}
+
+.values .connected {
+    background-image: linear-gradient(to top, #6ff316 , #121212);
+    border-radius: 30px;
+    margin: -10px;
+}
+
+
+@media screen and (max-width: 991px) { 
+    .eth {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+    
+   
+    
+    .btc {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+    
+    .matic {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+}
+
+.team-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+  
+}
+
+.team{
+    width: 100%;
+    padding: 100px 0 0 0;
+}
+.team h1{
+    color:white;
+    font-size: 75px;
+    margin:30px auto;
+    text-align: center;
+
+}
+.team img{
+    height: 200px;
+    display: block;
+    margin: 0px auto;
+}
+.team h2{
+    color: #6fff31;
+    margin:30px auto;
+    text-align: center;
+}
+
+.team h3{
+    color:white;
+    margin:30px auto;
+    text-align: center;
+}
+.container-fluid{
+    padding:0 10%;
+}
+#contact{
+    text-align:center;
+    line-height:10rem;
+    font-size:60px;
+    color: #6fff31;
+    font-family: 'Oswald', sans-serif;
+}
+h3{
+    padding-top:15px;
+}
+.info-box{
+    border-style:solid;
+    border-width:5px;
+    border-radius:30px;
+    color:black;
+    padding:10% 0% 10% 10%;
+    margin:20px 0px;
+    border: solid 5px #6fff31;
+    background-color: rgb(224, 248, 225);
+
+}
+.info-box-2{
+    padding:2% 0;
+}
+.info-box:hover{
+    background-color: white;
+}
+.contract-address{
+    text-align:center;
 }
