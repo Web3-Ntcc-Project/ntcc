@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<link rel="stylesheet" href="style.css">
+        
+        <title>Mint Your NFT ~ Bulb Nation</title>
+        <script src="node_modules/web3.js-browser/build/web3.js"></script>
+
+
+
+
+    <!--
+
+      Use unpkg CDN to load all NPM packages to vanilla Javascript - read more at http://unpkg.com
+
+      On your deployment, you properly either want to use a preprocessing tool like webpack
+      to include these files, or extract NPM archives and manually host the files inside.
+
+      TODO: Pin down all versions.
+
+    -->
+
+    <script type="text/javascript" src="https://unpkg.com/web3@1.2.11/dist/web3.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/web3modal@1.9.0/dist/index.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/evm-chains@0.2.0/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider@1.2.1/dist/umd/index.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/fortmatic@2.0.6/dist/fortmatic.js"></script>
+
+    <!-- This is our example code -->
+    <script type="text/javascript" src="./example.js"></script>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+    <body onload="getOption()">
+        <div class="conatiner">
+            <main class="grid">
+                <article>
+                    <img src="nft_loop.gif">
+                    <div class="text">
+                       <h1 class="total">Total Supply:<span id="ttt"></h1>
+						<select id="select1">
+							<option value="Legendary">Legendary</option>
+							<option value="Epic">Epic</option>
+							<option value="Rare">Rare</option>
+						</select>
+						<select id="select2">
+							<option value="1">1</option>
+							<option value="2">2</option>
+							<option value="3">3</option>
+						</select>
+						<span id="nftid" class="output"></span> 
+						<span id="nftamount" class="output1"></span>
+						<input id="nftrate" class="output2">
+						<span id="nftcur">ETH</span
+				 
+				 
+					
+                        <br>
+  <br>
+                       <button id="mint">Mint</button>
+                       </div>
+					 
+                       </article>
+					   
+                       </main>
+					   
+					  <p><button onclick="opensea()"><img class="opensea" src="images/opensea.png"></button></p>
+        <p>wallet address -<span id="wallet_address"></span></p>
+        
+
+           
+<script type="text/javascript">
+
+    var account = null;
+    var contract = null;
+    const ABI = [
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "ApprovalForAll",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "mint",
+		"outputs": [],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "previousOwner",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "OwnershipTransferred",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "renounceOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "amounts",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeBatchTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "amount",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bytes",
+				"name": "data",
+				"type": "bytes"
+			}
+		],
+		"name": "safeTransferFrom",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"internalType": "bool",
+				"name": "approved",
+				"type": "bool"
+			}
+		],
+		"name": "setApprovalForAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "newuri",
+				"type": "string"
+			}
+		],
+		"name": "setURI",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "totalsupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256[]",
+				"name": "values",
+				"type": "uint256[]"
+			}
+		],
+		"name": "TransferBatch",
+		"type": "event"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "from",
+				"type": "address"
+			},
+			{
+				"indexed": true,
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "TransferSingle",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "value",
+				"type": "string"
+			},
+			{
+				"indexed": true,
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "URI",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "withdraw",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "id",
+				"type": "uint256"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "accounts",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "ids",
+				"type": "uint256[]"
+			}
+		],
+		"name": "balanceOfBatch",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "",
+				"type": "uint256[]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "operator",
+				"type": "address"
+			}
+		],
+		"name": "isApprovedForAll",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintRate",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintRate1",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "mintRate2",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "owner",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "supply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bytes4",
+				"name": "interfaceId",
+				"type": "bytes4"
+			}
+		],
+		"name": "supportsInterface",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "uri",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+   
+    const ADDRESS = "0x7520a0fB1297E2e5056dB60Ab3609302E0C02101";
+    (async () => {
+        if (window.ethereum) {
+            await window.ethereum.send('eth_requestAccounts');
+            window.web3 = new Web3(window.ethereum);
+   
+        
+              
+            
+   
+         //  var totalSupply = await web3.eth.totalSupply();
+       //	document.getElementById('kuch').textContent = totalSupply;
+   
+   
+            var accounts = await web3.eth.getAccounts();
+            account = accounts[0];
+            document.getElementById('wallet_address').textContent = account;
+
+			
+   
+            
+            contract = new web3.eth.Contract(ABI, ADDRESS);
+
+			var e = document.getElementById("ddlViewBy");
+			
+			
+            document.getElementById('mint').onclick = () => {
+                contract.methods.mint(document.getElementById('nftid').value,document.getElementById('nftamount').value).send({from: account, value:  document.getElementById('nftrate').value * 1000000000000000000 ,gasLimit: 250000});
+            }
+           
+            
+            
+   
+   
+             var totalsupply = await contract.methods.totalsupply().call();
+             document.getElementById('ttt').textContent = totalsupply;
+			 
+			
+   
+          
+   
+   
+        }
+    }) ();
+
+	
+   
+	document.getElementById("select1").onchange=getOption;
+	document.getElementById("select2").onchange=getOption;
+	function getOption() {
+        selectElement = document.querySelector('#select1');
+		selectElement1 = document.querySelector('#select2');
+		if (selectElement.value=='Legendary') {
+			output = Math.floor(Math.random() * 3) + 1;
+			price=0.04*selectElement1.value;
+		}
+		if (selectElement.value=='Epic') {
+			output = Math.floor(Math.random() * (6 - 4)) + 4;
+			price=0.03*selectElement1.value;
+		}
+        if (selectElement.value=='Rare') {
+			output = Math.floor(Math.random() * (8 - 5)) + 5;
+			price=(0.035*selectElement1.value).toFixed(3);
+		}
+		output1=selectElement1.value;
+		document.querySelector('.output2').value = price;
+		document.querySelector('.output1').value = output1;
+        document.querySelector('.output').value = output;
+		console.log(document.getElementById('nftid').value);
+		console.log(document.getElementById('nftamount').value);
+		console.log(document.getElementById('nftrate').value);
+    }
+
+	console.log( Math.random());
+	
+console.log(document.getElementById('wallet_address').innerHTML);
+	function opensea()
+{
+window.open("https://testnets.opensea.io/" + document.getElementById('wallet_address').innerHTML)
+}
+        </script>
+
+
+
+
+
+
+
+    </body>
+</html>

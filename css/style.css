@@ -1,0 +1,510 @@
+
+ 
+ body {
+    font-family:"Montserrat";
+    font-size: 15px;
+    line-height: 1.5;
+    box-sizing: border-box;
+    margin: 0;
+    overflow-x: hidden;
+    top: 0;
+    left: 0;
+    background-color: black;
+}
+ a{
+    text-decoration: none;
+    color: rgba(34,54,69,7);
+    font-weight: 500;
+}
+
+.navbar {
+
+    padding: 10px 10px;
+}
+
+.navbar-toggler-icon {
+    background-color: white;
+    height: 5px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.navbar-toggler {
+    border: none;
+    padding: 10px 6px;
+    outline:none;
+}
+/* .navbar-toggler-span{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 1px;
+    background: #fff;
+} */
+.navbar-nav .btn{
+    color: black;
+    border: solid 5px white;
+    background-color: #6fff31;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 20px;
+    padding: 1rem 1.5rem;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.header {
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 20px 0;
+    position: absolute;
+    background-size:cover;
+    
+}
+
+.nav-item {
+    padding: 20px;
+}
+
+.nav-link {
+    font-weight: bold;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+    color: white;
+}
+
+.nav-link:hover, .nav-link:active {
+    font-weight: bold;
+    color: #6fff31;
+}
+
+
+
+.navbar-nav .btn:hover{
+    background-color:aliceblue;
+    border-color: #6fff31;
+}
+.navbar-brand{
+    font-weight: bold;
+    font-size: 30px;
+    word-spacing: 2px;
+}
+
+/*---------------------------------------------------------------------------------------------*/
+
+.hero {
+    margin-top: 100px;
+}
+
+video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+  margin-bottom:100px;
+    top: 0;
+    left: 0;
+  }
+
+  .logo-img {
+    width:120px;
+    margin-left:10px;
+    padding-bottom:10px;
+  }
+
+.banner-image {
+   
+    background-size: cover;
+/*    filter: blur(5px);
+    transform: scale(1.1);
+/*   -webkit-filter: blur(8px);*/*/
+}
+.heading{
+    position: absolute;
+    left: 700px;
+    top: 18%;
+    color: white;
+    font-family: 'Jura', sans-serif;
+    font: bold;
+    font-size: 25px;
+
+}
+.numeric {
+    position: absolute;
+    left: 870px;
+    top: 28%;
+    color:lightgreen;
+    font: bold;
+
+}
+.minted {
+    position: absolute;
+    left: 980px;
+    top: 28%;
+    color: white;
+    font-family: 'Jura', sans-serif;    
+    font: bold;
+
+}
+.img2 {
+    position: absolute;
+    left: 1000px;
+    top: 200px;
+
+}
+.bulb {
+    position: absolute;
+    top: 300px;
+    left: 1120px;
+    transform: scale(1.1);
+}
+
+.text{
+    font-family: 'poppins', sans-serif;
+    color: black;
+    font-size: 80px;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: absolute;
+    top: 370px;
+    left: 170px;
+    background: linear-gradient(135deg, #5335cf 0%, #de005e 25%, #f66e48 50%, #de005e 75%, #5335cf 100%);
+    background-size: 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: animate 10s linear infinite;
+}
+
+@keyframes animate {
+    100%{
+        background-position: 400%;
+    }
+}
+.text1{
+    font-family: 'poppins', sans-serif;
+    color: white;
+    font-size: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
+    position: absolute;
+    top: 500px;
+    left: 170px;
+}
+
+
+
+
+
+.price-bg {
+    background-image: url('../img/pricebg.jpg');
+    background-size: cover;
+    filter: blur(5px);
+    transform: scale(1.1);
+    position: absolute;
+    top: 1100px;
+}
+
+.box1{
+    position: absolute;
+    top: 1450px;
+    left: 250px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+.box2{
+    position: absolute;
+    top: 1450px;
+    left: 750px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+.box3{
+    position: absolute;
+    top: 1450px;
+    left: 1250px;
+    width: 400px;
+    height: 600px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 20px;
+
+}
+
+.logo-banner {
+    margin-top:-50px;
+   
+}
+
+.main-anim {
+    width:100%;
+    margin-top: -100px;
+}
+.pricehead1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 200px;
+    left: -160px;
+}
+.pricehead2 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 200px;
+    left: -100px;
+}
+
+
+.price {
+    float: right;
+    font-size: 65px;
+}
+
+.eth {
+    background-color: #32de84;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    height: 180px;
+}
+
+#chart {
+    margin-top: 100px;
+}
+
+.btc {
+    background-color: #4FFFB0;
+    margin-bottom: 50px;
+    border-radius: 10px;
+    height: 180px;
+}
+
+.matic {
+    background-color: #50C878;
+    border-radius: 10px;
+    height: 180px;
+}
+
+.matic-img {
+    width: 38px;
+    margin-bottom: 10px;
+}
+
+.counts {
+    padding: 70px 0 60px;
+    background-color: black;
+}
+.counts .btn {
+    background-color: transparent !important;
+}
+.counts .btn-get-started {
+    line-height: 0;
+    height: 50px;
+    font-size: 25px;
+    width: 300px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    transition: 0.5s;
+    color: #fff;
+    background: #975bb0;
+}
+.counts .btn-get-started i {
+    font-size: 25px;
+}
+
+.counts .box {
+    padding: 10px;
+    box-shadow: 0px 0 5px rgba(1, 41, 112, 0.08);
+    background-color: transparent;
+    border: solid 5px #6fff31;
+    font-family: 'Oswald', sans-serif;
+    border-radius: 30px;
+    text-align: center;
+    transition: 0.3s;
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.counts .box img {
+    padding: 30px 50px;
+    transition: 0.5s;
+    transform: scale(1.1);
+}
+
+.counts .box h3 {
+    font-size: 24px;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 18px;
+}
+
+.counts .box:hover {
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.counts .box:hover img {
+    transform: scale(1);
+}
+
+.counts .count-box {
+    display: flex;
+    align-items: center;
+    padding: 30px;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 0 30px rgba(1, 41, 112, 0.08);
+}
+
+.counts .count-box i {
+    font-size: 42px;
+    line-height: 0;
+    margin-right: 20px;
+    color: #4154f1;
+}
+
+.counts .count-box span {
+    font-size: 36px;
+    display: block;
+    font-weight: 600;
+    color: #0b198f;
+}
+
+.counts .count-box p {
+    padding: 0;
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+}
+
+.values .counts .wallet {
+    justify-content: justify;
+}
+
+.values .logo-wallet {
+    max-height: 140px;
+    margin-left: -80px;
+    margin-top: -10px;
+}
+
+.values .profile-wallet {
+    max-height: 140px;
+    margin-left: -60px;
+    margin-top: -10px;
+}
+
+.values #selected-account {
+    font-size: 9px;
+}
+
+.values #network-name {
+    margin-bottom: -30px;
+    font-size: 1.2rem;
+}
+
+.values .block {
+    height: 300px;
+}
+
+.values .connected {
+    background-image: linear-gradient(to top, #6ff316 , #121212);
+    border-radius: 30px;
+    margin: -10px;
+}
+
+
+@media screen and (max-width: 991px) { 
+    .eth {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+    
+   
+    
+    .btc {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+    
+    .matic {
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 90%;
+    }
+}
+
+.team-head {
+    font-family: 'Oswald', sans-serif;
+    font-size: 60px;
+    margin-bottom: 20px;
+  
+}
+
+.team{
+    width: 100%;
+    padding: 100px 0 0 0;
+}
+.team h1{
+    color:white;
+    font-size: 75px;
+    margin:30px auto;
+    text-align: center;
+
+}
+.team img{
+    height: 200px;
+    display: block;
+    margin: 0px auto;
+}
+.team h2{
+    color: #6fff31;
+    margin:30px auto;
+    text-align: center;
+}
+
+.team h3{
+    color:white;
+    margin:30px auto;
+    text-align: center;
+}
+.container-fluid{
+    padding:0 10%;
+}
+#contact{
+    text-align:center;
+    line-height:10rem;
+    font-size:60px;
+    color: #6fff31;
+    font-family: 'Oswald', sans-serif;
+}
+h3{
+    padding-top:15px;
+}
+.info-box{
+    border-style:solid;
+    border-width:5px;
+    border-radius:30px;
+    color:black;
+    padding:10% 0% 10% 10%;
+    margin:20px 0px;
+    border: solid 5px #6fff31;
+    background-color: rgb(224, 248, 225);
+
+}
+.info-box-2{
+    padding:2% 0;
+}
+.info-box:hover{
+    background-color: white;
+}
+.contract-address{
+    text-align:center;
+}
